@@ -26,5 +26,13 @@ FROM employees;
 SELECT first_name, last_name, job_id, salary, commission_pct
 FROM employees;
 
+-----------------------------------------------------
+-- Utilizando valores nulos em expressões aritméticas
+-----------------------------------------------------
+
+SELECT first_name, last_name, job_id, commission_pct, 200000 * commission_pct
+FROM employees
+WHERE commission_pct IS NULL;
+
 
 
