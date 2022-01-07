@@ -32,6 +32,14 @@ SELECT last_name, salary
 FROM employees
 WHERE salary >= 10000;
 
+------------------------------------------------------------------
+-- Selecionando faixas de valores utilizando o operador BETWEEN --
+------------------------------------------------------------------
+
+SELECT last_name, salary
+FROM employees
+WHERE salary BETWEEN 10000 AND 15000;
+
 
 
 
