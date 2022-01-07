@@ -117,6 +117,15 @@ SELECT
 FROM 
     dual; 
     
+SELECT 
+    sysdate, ROUND(SYSDATE, 'MONTH'), ROUND(SYSDATE, 'YEAR'),
+    TRUNC(SYSDATE, 'MONTH'), TRUNC(SYSDATE, 'YEAR')
+FROM 
+    dual;
+
+SELECT SYSDATE, TO_CHAR(TRUNC(SYSDATE), 'DD/MM/YYYY HH24:MI:SS')
+FROM dual;
+    
 
     
     
