@@ -189,3 +189,10 @@ SELECT last_name, department_id, salary
 FROM employees
 ORDER BY department_id, salary DESC;
 
+------------------------------------------
+-- Utilizando variáveis de substituição --
+------------------------------------------
+
+SELECT employee_id, last_name, salary, department_id
+FROM employees
+WHERE employee_id = &employee_id;
