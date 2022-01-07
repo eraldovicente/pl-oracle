@@ -213,6 +213,19 @@ SELECT last_name, department_id, job_id, (salary * 12)
 FROM employees
 WHERE job_id = '&job_id';
 
+---------------------------------
+-- Utilizando o comando DEFINE --
+---------------------------------
+
+DEFINE employee_id = 101
+
+SELECT employee_id, last_name, salary, department_id
+FROM employees
+WHERE employee_id = &employee_id;
+
+DEFINE employee_id
+
+UNDEFINE employee_id
 
 
 
