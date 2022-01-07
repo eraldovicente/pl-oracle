@@ -135,5 +135,13 @@ SELECT last_name, job_id, salary
 FROM employees
 WHERE job_id = 'SA_REF' OR job_id = 'IT_PROG' AND salary > 10000;
 
+------------------------------------------------------------------
+-- Utilizando parênteses para sobrepor as regras de precedência --
+------------------------------------------------------------------
 
+SELECT last_name, job_id, salary
+FROM employees
+WHERE (job_id = 'SA_REP' OR
+            job_id = 'IT_PROG')
+AND salary > 10000;
 
