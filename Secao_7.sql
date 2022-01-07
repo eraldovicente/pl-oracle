@@ -40,6 +40,18 @@ SELECT last_name, salary
 FROM employees
 WHERE salary BETWEEN 10000 AND 15000;
 
+-----------------------------------------------------------------------
+-- Selecionando valores dentro de uma lista utilizando o operador IN --
+-----------------------------------------------------------------------
+
+SELECT employee_id, last_name, salary, manager_id, job_id
+FROM employees
+WHERE job_id IN ('IT_PROG', 'FI_ACCOUNT', 'SA_REP');
+
+
+
+
+
 
 
 
