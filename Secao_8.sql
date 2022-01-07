@@ -94,9 +94,29 @@ SELECT sysdate, sysdate + 30, sysdate + 60, sysdate - 30
 FROM dual;
 
 SELECT 
-    last_name, ROUND((SYSDATE - hire_date)/7, 2) "SEMANAS DE TRABALHO"
+    last_name, hire_date, ROUND((SYSDATE - hire_date)/7, 2) "SEMANAS DE TRABALHO"
 FROM
     employees;
+
+------------------------------
+-- Outras funções tipo date --
+------------------------------
+
+SELECT 
+    first_name, 
+    last_name, 
+    ROUND(MONTHS_BETWEEN(SYSDATE, hire_date), 2) "MESES DE TRABALHO"
+FROM 
+    employees;
+    
+SELECT 
+    SYSDATE, 
+    ADD_MONTHS(SYSDATE, 3), 
+    NEXT_DAY(SYSDATE, 'SEXTA FEIRA'), 
+    LAST_DAY(SYSDATE)
+FROM 
+    dual; 
+    
 
     
     
