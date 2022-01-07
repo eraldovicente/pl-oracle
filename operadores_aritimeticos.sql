@@ -44,6 +44,13 @@ FROM employees;
 SELECT first_name "Nome", last_name "Sobrenome", salary "Salário ($)", commission_pct "Percentual de comissão"
 FROM employees;
 
+--------------------------------------
+-- Utilizando operador de concatenação
+--------------------------------------
+
+SELECT first_name || ' ' || last_name || ', data de admissão: ' || hire_date "Funcionário"
+FROM employees;
+
 
 
 
