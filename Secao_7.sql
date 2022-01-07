@@ -181,5 +181,11 @@ SELECT last_name, job_id, department_id, hire_date
 FROM employees
 ORDER BY 1;
 
+----------------------------------------------------------------------
+-- Utilizando a cláusula ORDER BY - Múltiplas colunas ou expressões --
+----------------------------------------------------------------------
 
+SELECT last_name, department_id, salary
+FROM employees
+ORDER BY department_id, salary DESC;
 
