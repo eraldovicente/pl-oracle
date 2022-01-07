@@ -67,6 +67,24 @@ SELECT
     MOD(1300, 600) RESTO
 FROM
     dual;
+    
+SELECT ABS(-9), SQRT(9)
+FROM dual;
+
+-----------------------
+-- Funções tipo DATE --
+-----------------------
+
+SELECT sysdate
+FROM dual;
+
+DESC dual;
+
+SELECT *
+FROM dual;
+
+SELECT 30000 * 1.25
+FROM dual;
 
     
     
