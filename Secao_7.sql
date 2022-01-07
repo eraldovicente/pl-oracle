@@ -145,3 +145,14 @@ WHERE (job_id = 'SA_REP' OR
             job_id = 'IT_PROG')
 AND salary > 10000;
 
+-------------------------------------------------------
+-- Utilizando a cláusula ORDER BY - Ordem Ascendente --
+-------------------------------------------------------
+
+SELECT last_name, job_id, department_id, hire_date
+FROM employees
+ORDER BY hire_date ASC;
+
+SELECT last_name, job_id, department_id, hire_date
+FROM employees
+ORDER BY hire_date;
