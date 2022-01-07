@@ -56,10 +56,22 @@ SELECT first_name, last_name, job_id
 FROM employees
 WHERE first_name LIKE 'Sa%';
 
+-------------------------------
+-- Use o operador LIKE para executar pesquisas de valores que coincidem com
+-- padrões utilizando caracteres curingas (wildcards)
+----------------------------------------------------------------------
+-- As condições de pesquisa podem conter caracters ou números:
+-- (%) Combina com zero ou mais caracteres
+-- (_) Combina com um e somente um caracter
+----------------------------------------------------------------------
 
+---------------------------------------------------
+-- Combinando o uso de vários caracteres curinga --
+---------------------------------------------------
 
-
-
+SELECT first_name, last_name
+FROM employees
+WHERE last_name LIKE '_a%';
 
 
 
