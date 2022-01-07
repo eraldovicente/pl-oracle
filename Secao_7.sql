@@ -56,14 +56,14 @@ SELECT first_name, last_name, job_id
 FROM employees
 WHERE first_name LIKE 'Sa%';
 
--------------------------------
--- Use o operador LIKE para executar pesquisas de valores que coincidem com
--- padrões utilizando caracteres curingas (wildcards)
-----------------------------------------------------------------------
--- As condições de pesquisa podem conter caracters ou números:
--- (%) Combina com zero ou mais caracteres
--- (_) Combina com um e somente um caracter
-----------------------------------------------------------------------
+------------------------------------------------------------------------------
+-- Use o operador LIKE para executar pesquisas de valores que coincidem com --
+-- padrões utilizando caracteres curingas (wildcards)                       --
+------------------------------------------------------------------------------
+-- As condições de pesquisa podem conter caracters ou números:              --
+-- (%) Combina com zero ou mais caracteres                                  --
+-- (_) Combina com um e somente um caracter                                 --                    
+------------------------------------------------------------------------------
 
 ---------------------------------------------------
 -- Combinando o uso de vários caracteres curinga --
@@ -89,17 +89,17 @@ SELECT last_name, manager_id
 FROM employees
 WHERE manager_id IS NULL;
 
------------------------------------------
--- Definindo condições utilizando operadores lógicos
------------------------------------------
+-------------------------------------------------------
+-- Definindo condições utilizando operadores lógicos --
+-------------------------------------------------------
 
------------------------------------------
--- AND - retorna TRUE se ambas as condições são verdadeiras
--- OR - retorna TRUE se pelo menos uma das condições for verdadeira
--- NOT - retorna a negação da condição. Retorna TRUE se a condição 
--- é falsa. Retorna FALSE se a condição é verdadeira. Retorna NULL
--- se a condição é NULL.
-------------------------------------------
+----------------------------------------------------------------------
+-- AND - retorna TRUE se ambas as condições são verdadeiras         --
+-- OR - retorna TRUE se pelo menos uma das condições for verdadeira --
+-- NOT - retorna a negação da condição. Retorna TRUE se a condição  --
+-- é falsa. Retorna FALSE se a condição é verdadeira. Retorna NULL  --
+-- se a condição é NULL.                                            --
+----------------------------------------------------------------------
 
 -------------------------------
 -- Utilizando o operador AND --
@@ -196,3 +196,22 @@ ORDER BY department_id, salary DESC;
 SELECT employee_id, last_name, salary, department_id
 FROM employees
 WHERE employee_id = &employee_id;
+
+-----------------------------------------------
+-- Utilizando variáveis de substituição - && --
+-----------------------------------------------
+
+SELECT employee_id, last_name, salary, department_id
+FROM employees
+WHERE employee_id = &&employee_id;
+
+
+
+
+
+
+
+
+
+
+
