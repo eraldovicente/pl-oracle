@@ -34,5 +34,16 @@ SELECT first_name, last_name, job_id, commission_pct, 200000 * commission_pct
 FROM employees
 WHERE commission_pct IS NULL;
 
+-----------------------------
+-- Utilizando alias de coluna
+-----------------------------
+
+SELECT first_name AS nome, last_name sobrenome, salary salário
+FROM employees;
+
+SELECT first_name "Nome", last_name "Sobrenome", salary "Salário ($)", commission_pct "Percentual de comissão"
+FROM employees;
+
+
 
 
