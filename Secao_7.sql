@@ -73,7 +73,13 @@ SELECT first_name, last_name
 FROM employees
 WHERE last_name LIKE '_a%';
 
+--------------------------------
+-- Comparações com valor NULL --
+--------------------------------
 
+SELECT last_name, manager_id
+FROM employees
+WHERE manager_id = NULL;
 
 
 
