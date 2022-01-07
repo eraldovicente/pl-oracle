@@ -49,5 +49,28 @@ FROM
 WHERE
     job_title = 'President';
 
+-------------------------
+-- Funções tipo NUMBER --
+-------------------------
+
+SELECT 
+    ROUND(45.923, 2), ROUND(45.923, 0)
+FROM
+    dual;
+    
+SELECT 
+    TRUNC(45.923, 2), TRUNC(45.923, 0)
+FROM
+    dual;
+    
+SELECT 
+    MOD(1300, 600) RESTO
+FROM
+    dual;
+
+    
+    
+    
+    
 
 
