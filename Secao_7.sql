@@ -81,6 +81,14 @@ SELECT last_name, manager_id
 FROM employees
 WHERE manager_id = NULL;
 
+--------------------------------------------------
+-- Utilizando a expressão de comparação IS NULL --
+--------------------------------------------------
+
+SELECT last_name, manager_id
+FROM employees
+WHERE manager_id IS NULL;
+
 
 
 
