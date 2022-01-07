@@ -165,6 +165,13 @@ SELECT last_name, job_id, department_id, hire_date
 FROM employees
 ORDER BY hire_date DESC;
 
+---------------------------------------------------------
+-- Utilizando a cláusula ORDER BY - Referenciando ALIS --
+---------------------------------------------------------
+
+SELECT employee_id, last_name, salary * 12 salario_anual
+FROM employees
+ORDER BY salario_anual;
 
 
 
