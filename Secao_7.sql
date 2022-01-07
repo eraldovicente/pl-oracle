@@ -119,6 +119,13 @@ FROM employees
 WHERE salary >= 5000
 OR job_id = 'IT_PROG';
 
+-------------------------------
+-- Utilizando o operador NOT --
+-------------------------------
+
+SELECT employee_id, last_name, salary, manager_id, job_id
+FROM employees
+WHERE job_id NOT IN ('IT_PROG', 'FI_ACCOUNT', 'SA_REP');
 
 
 
