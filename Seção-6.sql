@@ -51,6 +51,12 @@ FROM employees;
 SELECT first_name || ' ' || last_name || ', data de admissão: ' || hire_date "Funcionário"
 FROM employees;
 
+------------------------------------
+-- Utilizando operador de concatenação e strings de caracteres
+------------------------------------
+
+SELECT first_name || ' ' || last_name || ', salário: ' || salary "Funcionário"
+FROM employees;
 
 
 
