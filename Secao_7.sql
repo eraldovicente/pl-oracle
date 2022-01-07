@@ -89,7 +89,26 @@ SELECT last_name, manager_id
 FROM employees
 WHERE manager_id IS NULL;
 
+-----------------------------------------
+-- Definindo condições utilizando operadores lógicos
+-----------------------------------------
 
+-----------------------------------------
+-- AND - retorna TRUE se ambas as condições são verdadeiras
+-- OR - retorna TRUE se pelo menos uma das condições for verdadeira
+-- NOT - retorna a negação da condição. Retorna TRUE se a condição 
+-- é falsa. Retorna FALSE se a condição é verdadeira. Retorna NULL
+-- se a condição é NULL.
+------------------------------------------
+
+-------------------------------
+-- Utilizando o operador AND --
+-------------------------------
+
+SELECT employee_id, last_name, job_id, salary
+FROM employees
+WHERE salary >= 5000
+AND job_id = 'IT_PROG';
 
 
 
