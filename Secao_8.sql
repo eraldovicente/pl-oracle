@@ -18,6 +18,15 @@ SELECT employee_id, UPPER(last_name), department_id
 FROM employees
 WHERE UPPER(last_name) = 'KING';
 
+------------------------------------------
+-- Funções de manipulação de caracteres --
+------------------------------------------
+
+SELECT CONCAT(' Curso: ', 'Introdução ORACLE 21c'), 
+       SUBSTR('Introdução ORACLE 21c', 1, 11),
+       LENGTH('Introdução ORACLE 21c'), INSTR('Introdução ORACLE 21c', 'ORACLE')
+FROM dual;
+
 
 
 
