@@ -27,7 +27,16 @@ SELECT CONCAT(' Curso: ', 'Introdução ORACLE 21c'),
        LENGTH('Introdução ORACLE 21c'), INSTR('Introdução ORACLE 21c', 'ORACLE')
 FROM dual;
 
+-------------------------------------------------
+-- Outras funções de manipulação de caracteres --
+-------------------------------------------------
 
+SELECT 
+    first_name "Nome", 
+    LPAD(first_name, 20, ' ') "Nome alinhado a direita", 
+    RPAD(first_name, 20, ' ') "Nome alinhado a esquerda"
+FROM
+    employees;
 
 
 
