@@ -37,7 +37,17 @@ SELECT
     RPAD(first_name, 20, ' ') "Nome alinhado a esquerda"
 FROM
     employees;
+    
+--------------------
+-- Função replace --
+--------------------
 
+SELECT 
+    job_title, REPLACE(job_title, 'President', 'Presidente') CARGO
+FROM
+    jobs
+WHERE
+    job_title = 'President';
 
 
 
