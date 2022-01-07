@@ -205,6 +205,16 @@ SELECT employee_id, last_name, salary, department_id
 FROM employees
 WHERE employee_id = &&employee_id;
 
+-----------------------------------------------------------------
+-- Variáveis de substituição com valores tipo character e date --
+-----------------------------------------------------------------
+
+SELECT last_name, department_id, job_id, (salary * 12)
+FROM employees
+WHERE job_id = '&job_id';
+
+
+
 
 
 
