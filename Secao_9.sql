@@ -63,4 +63,16 @@ FROM
 SELECT TO_NUMBER('1200,50')
 FROM dual;
 
+---------------------------------
+-- Utilizando a função TO_DATE --
+---------------------------------
+
+SELECT TO_DATE('06/02/2020','DD/MM/YYYY') DATA
+FROM dual;
+
+SELECT first_name, last_name, hire_date
+FROM employees
+WHERE hire_date = TO_DATE('17/06/2003', 'DD/MM/RRRR');
+
+
 
