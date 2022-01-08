@@ -100,6 +100,23 @@ SELECT
 FROM
     employees;
     
+----------------------------------
+-- Utilizando a função COALESCE --
+----------------------------------
+
+SELECT 
+    COALESCE(NULL, NULL, 'Expressão 3'), 
+    COALESCE(NULL, 'Expressão 2', 'Expressão 3'),
+    COALESCE('Expressão 1', 'Expressão 2', 'Expressão 3')
+FROM 
+    dual;
+
+SELECT last_name, employee_id, commission_pct, manager_id,
+    COALESCE(TO_CHAR(commission_pct), TO_CHAR(manager_id),
+    'Sem percentual de comissão e sem gerente')
+FROM 
+    employees;
+
    
    
    
