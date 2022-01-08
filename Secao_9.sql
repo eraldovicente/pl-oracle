@@ -49,13 +49,18 @@ SELECT
     TO_CHAR(salary, 'FML99G999G999') SALARY
 FROM 
     employees;
-
     
+-----------------------
+-- Estoura o tamanho --
+-----------------------
+-- SELECT first_name, last_name, TO_CHAR(salary, 'L999D99') SALARY
+-- FROM employees;
 
+-----------------------------------
+-- Utilizando a função TO_NUMBER --
+-----------------------------------
 
-
-SELECT first_name, last_name, TO_CHAR(salary, 'L999D99') SALARY
-FROM employees;
-
+SELECT TO_NUMBER('1200,50')
+FROM dual;
 
 
