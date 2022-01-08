@@ -74,5 +74,29 @@ SELECT first_name, last_name, hire_date
 FROM employees
 WHERE hire_date = TO_DATE('17/06/2003', 'DD/MM/RRRR');
 
+----------------------------------
+-- Utilizando funções aninhadas --
+----------------------------------
+
+SELECT 
+    first_name, 
+    last_name, 
+    ROUND(MONTHS_BETWEEN(SYSDATE, hire_date), 0) NUMERO_MESES
+FROM 
+    employees
+WHERE
+    hire_date = TO_DATE('17/06/2003','DD/MM/YYYY');
 
 
+
+
+
+
+
+
+
+
+
+
+
+    
