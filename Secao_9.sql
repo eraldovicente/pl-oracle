@@ -86,7 +86,34 @@ FROM
     employees
 WHERE
     hire_date = TO_DATE('17/06/2003','DD/MM/YYYY');
+    
+-----------------------------
+-- Utilizando a função NVL --
+-----------------------------
 
+SELECT 
+    last_name, 
+    salary, 
+    NVL(commission_pct, 0), 
+    (salary * 12) SALARIO_ANUAL,
+    (salary * 12) + (salary * 12 * NVL(commission_pct, 0)) REMUNERAÇÃO_ANUAL
+FROM
+    employees;
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
 
 
 
