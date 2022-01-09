@@ -32,4 +32,22 @@ FROM
     employees e
     JOIN departments d ON ( e.department_id = d.department_id );
     
+-----------------------------
+-- Utilizando NATURAL JOIN --
+-----------------------------
+
+SELECT department_id, department_name, location_id, city
+FROM departments
+NATURAL JOIN locations;
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
