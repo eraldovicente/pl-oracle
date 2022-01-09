@@ -105,6 +105,27 @@ ORDER BY department_id;
 --SELECT department_id, AVG(salary)
 --FROM employees;
 
+--SELECT department_id, MAX(salary)
+--FROM employees
+--WHERE MAX(salary) > 10000
+--GROUP BY department_id; 
+
+-----------------------------------------------------------------
+-- Corrigindo consultas incorretas utilizando funções de grupo --
+-----------------------------------------------------------------
+
+------------------------------------------------------
+-- Restringindo grupos utilizando a cláusula HAVING --
+------------------------------------------------------
+
+SELECT department_id, MAX(salary)
+FROM employees
+GROUP BY department_id
+HAVING MAX(salary)>10000;
+
+
+
+
 
 
 
