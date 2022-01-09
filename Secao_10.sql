@@ -130,6 +130,13 @@ GROUP BY job_id
 HAVING SUM(salary) > 10000
 ORDER BY SUM(salary);
 
+--------------------------------
+-- Aninhando funções de grupo --
+--------------------------------
+
+SELECT MAX(AVG(salary))
+FROM employees
+GROUP BY department_id;
 
 
 
