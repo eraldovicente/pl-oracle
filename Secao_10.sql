@@ -23,6 +23,21 @@ FROM employees;
 SELECT MIN(salary), MAX(salary)
 FROM employees;
 
+-------------------------------
+-- Utilizando a função COUNT --
+-------------------------------
+
+SELECT COUNT(*)
+FROM employees;
+
+SELECT COUNT(commission_pct)
+FROM employees;
+
+SELECT COUNT(commission_pct), COUNT(*)
+FROM employees;
+
+SELECT COUNT(NVL(commission_pct,0))
+FROM employees;
 
 
 
