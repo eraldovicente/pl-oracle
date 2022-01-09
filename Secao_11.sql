@@ -36,18 +36,25 @@ FROM
 -- Utilizando NATURAL JOIN --
 -----------------------------
 
-SELECT department_id, department_name, location_id, city
-FROM departments
-NATURAL JOIN locations;
+SELECT
+    department_id,
+    department_name,
+    location_id,
+    city
+FROM
+    departments
+    NATURAL JOIN locations;
 
+-------------------------------
+-- JOIN com a cláusula USING --
+-------------------------------
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+SELECT
+    e.employee_id,
+    e.last_name,
+    d.location_id,
+    department_id,
+    d.department_name
+FROM
+    employees e
+    JOIN departments d USING ( department_id );
