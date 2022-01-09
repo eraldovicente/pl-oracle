@@ -131,7 +131,34 @@ FROM employees;
 
 SELECT NULLIF(1000, 1000), NULLIF(1000, 2000)
 FROM dual;
-   
+
+SELECT first_name, last_name, LENGTH(first_name) "Expressão 1",
+       LENGTH(last_name) "Expressão 2", NULLIF(LENGTH(first_name),
+       LENGTH(last_name)) RESULTADO
+FROM employees;
+
+-----------------------------
+-- Expressões condicionais --
+-----------------------------
+
+--------------------
+-- Expressão CASE --
+--------------------
+
+SELECT 
+    last_name, job_id, salary,
+                       CASE job_id
+                            WHEN 'IT_PROG' 
+                                THEN (1.10 * salary)
+                            WHEN 'ST_CLERK'
+                                THEN (1.15 * salary)
+                            WHEN 'SA_REP'
+                                THEN (1.20 * salary)
+                            ELSE salary
+                            END "NOVO SALÁRIO"
+FROM employees;
+
+                            
    
    
    
