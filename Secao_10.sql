@@ -76,7 +76,34 @@ FROM employees
 GROUP BY department_id
 ORDER BY department_id;
 
+------------------------------------------------------------------------
+-- Utilizando a cláusula GROUP BY com mais de uma coluna ou expressão --
+------------------------------------------------------------------------
 
+SELECT department_id, job_id, SUM(salary)
+FROM employees
+GROUP BY department_id, job_id
+ORDER BY department_id;
+
+-------------------------------------
+-- Se o comando SELECT utiliza grupos,  --
+-- então todas as colunas ou expressões --
+-- na lista da cláusula SELECT que não  --
+-- estão em uma função de grupo devem   --
+-- estar na cláusula GROUP BY.          --
+------------------------------------------
+
+------------------------------------------------------
+-- Consultas incorretas utilizando funções de grupo --
+------------------------------------------------------
+
+--SELECT department_id, first_name, job_id, SUM(salary)
+--FROM employees
+--GROUP BY department_id, job_id
+--ORDER BY department_id;
+--
+--SELECT department_id, AVG(salary)
+--FROM employees;
 
 
 
