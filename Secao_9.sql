@@ -116,7 +116,14 @@ SELECT last_name, employee_id, commission_pct, manager_id,
     'Sem percentual de comissão e sem gerente')
 FROM 
     employees;
+    
+------------------------------
+-- Utilizando a função NVL2 --
+------------------------------
 
+SELECT last_name, salary, commission_pct,
+       NVL2(commission_pct, 10, 0) PERCENTUAL_ALTERADO
+FROM employees;
    
    
    
