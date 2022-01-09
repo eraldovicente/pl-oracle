@@ -63,6 +63,19 @@ FROM employees;
 SELECT AVG(NVL(commission_pct,0))
 FROM employees;
 
+------------
+-- Aula 2 -- 
+------------
+
+---------------------------------------------------
+-- Criando grupos utilizando a cláusula GROUP BY --
+---------------------------------------------------
+
+SELECT department_id, AVG(salary)
+FROM employees
+GROUP BY department_id
+ORDER BY department_id;
+
 
 
 
