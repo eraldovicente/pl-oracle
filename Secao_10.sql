@@ -49,6 +49,14 @@ FROM employees;
 SELECT COUNT(department_id)
 FROM employees;
 
+--------------------------------------
+-- Funções de grupo e valores nulos --
+--------------------------------------
+
+SELECT AVG(commission_pct)
+FROM employees;
+
+
 
 
 
