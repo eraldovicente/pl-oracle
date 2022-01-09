@@ -39,6 +39,17 @@ FROM employees;
 SELECT COUNT(NVL(commission_pct,0))
 FROM employees;
 
+--------------------------------------------
+-- Utilizando a função COUNT com DISTINCT --
+--------------------------------------------
+
+SELECT COUNT(DISTINCT department_id)
+FROM employees;
+
+SELECT COUNT(department_id)
+FROM employees;
+
+
 
 
 
