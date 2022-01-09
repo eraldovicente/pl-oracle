@@ -124,7 +124,13 @@ FROM
 SELECT last_name, salary, commission_pct,
        NVL2(commission_pct, 10, 0) PERCENTUAL_ALTERADO
 FROM employees;
-   
+
+--------------------------------
+-- Utilizando a função NULLIF --
+--------------------------------
+
+SELECT NULLIF(1000, 1000), NULLIF(1000, 2000)
+FROM dual;
    
    
    
