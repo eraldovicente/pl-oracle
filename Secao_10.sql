@@ -56,6 +56,12 @@ FROM employees;
 SELECT AVG(commission_pct)
 FROM employees;
 
+---------------------------------------------
+-- Tratamento de nulos em funções de grupo --
+---------------------------------------------
+
+SELECT AVG(NVL(commission_pct,0))
+FROM employees;
 
 
 
