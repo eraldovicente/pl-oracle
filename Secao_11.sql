@@ -131,3 +131,18 @@ FROM
     employees e
     JOIN departments d ON ( e.department_id = d.department_id )
                           AND ( e.salary BETWEEN 10000 AND 15000 );
+                          
+----------------------------------------
+-- Self JOIN utilizando a cláusula ON --
+----------------------------------------
+
+SELECT
+    empregado.employee_id "Id empregado",
+    empregado.last_name   "Sobrenome empregado",
+    gerente.employee_id   "Id gerente",
+    gerente.last_name     "Sobrenome gerente"
+FROM
+    employees empregado
+    JOIN employees gerente ON ( empregado.manager_id = gerente.employee_id )
+ORDER BY
+    empregado.employee_id;
