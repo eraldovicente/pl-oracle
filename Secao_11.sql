@@ -63,13 +63,40 @@ FROM
 -- Join com cláusula ON --
 --------------------------
 
-SELECT e.employee_id, e.last_name, e.department_id, d.department_id, d.location_id
-FROM employees e JOIN departments d
-ON (e.department_id = d.department_id);
+SELECT
+    e.employee_id,
+    e.last_name,
+    e.department_id,
+    d.department_id,
+    d.location_id
+FROM
+    employees e
+    JOIN departments d ON ( e.department_id = d.department_id );
 
-SELECT e.employee_id, e.last_name, e.department_id, d.location_id
-FROM employees e JOIN departments d
-ON (e.department_id = d.department_id);
+SELECT
+    e.employee_id,
+    e.last_name,
+    e.department_id,
+    d.location_id
+FROM
+    employees e
+    JOIN departments d ON ( e.department_id = d.department_id );
 
+-------------------------------------------------------
+-- Joins utilizando várias tabelas com a cláusula ON --
+-------------------------------------------------------
 
-
+SELECT
+    e.employee_id,
+    j.job_title,
+    d.department_name,
+    l.city,
+    l.state_province,
+    l.country_id
+FROM
+    employees e
+    JOIN jobs        j ON (e.job_id = j.job_id)
+    JOIN departments d ON (e.department_id = d.department_id)
+    JOIN locations   l ON (d.location_id = l.location_id)
+ORDER BY
+    e.employee_id;
