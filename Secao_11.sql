@@ -146,3 +146,101 @@ FROM
     JOIN employees gerente ON ( empregado.manager_id = gerente.employee_id )
 ORDER BY
     empregado.employee_id;
+    
+-----------------------
+-- Seção 11 - Aula 2 -- 
+-----------------------
+DROP TABLE job_grades;
+
+CREATE TABLE job_grades (
+    grade_level VARCHAR(2) NOT NULL,
+    lowest_ssl  NUMBER(11, 2),
+    highest_ssl NUMBER(11, 2),
+    CONSTRAINT job_grades_pk PRIMARY KEY ( grade_level )
+);
+
+-------------------------------------------
+-- Inserindo linhas na tabela JOB_GRADES --
+-------------------------------------------
+
+INSERT INTO job_grades VALUES (
+    'A',
+    1000,
+    2999
+);
+
+INSERT INTO job_grades VALUES (
+    'B',
+    3000,
+    5999
+);
+
+INSERT INTO job_grades VALUES (
+    'C',
+    6000,
+    9999
+);
+
+INSERT INTO job_grades VALUES (
+    'D',
+    10000,
+    14999
+);
+
+INSERT INTO job_grades VALUES (
+    'E',
+    15000,
+    24999
+);
+
+INSERT INTO job_grades VALUES (
+    'F',
+    25000,
+    40000
+);
+
+---------------------------
+-- Efetuando a transação --
+---------------------------
+
+COMMIT;
+
+SELECT
+    *
+FROM
+    job_grades;
+    
+------------------
+-- Nonequijoins --
+------------------
+
+SELECT
+    e.employee_id,
+    e.salary,
+    j.grade_level,
+    j.lowest_ssl,
+    j.highest_ssl
+FROM
+    employees e
+    JOIN job_grades j ON nvl(
+        e.salary, 0
+    ) BETWEEN j.lowest_ssl AND highest_ssl
+ORDER BY
+    e.salary;
+
+SELECT
+    e.employee_id,
+    e.salary,
+    j.grade_level,
+    j.lowest_ssl,
+    j.highest_ssl
+FROM
+    employees e
+    JOIN job_grades j ON nvl(
+        e.salary, 0
+    ) >= j.lowest_ssl
+                         AND nvl(
+        e.salary, 0
+    ) <= j.highest_ssl
+ORDER BY
+    e.salary;
