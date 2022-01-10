@@ -95,8 +95,25 @@ SELECT
     l.country_id
 FROM
     employees e
-    JOIN jobs        j ON (e.job_id = j.job_id)
-    JOIN departments d ON (e.department_id = d.department_id)
-    JOIN locations   l ON (d.location_id = l.location_id)
+    JOIN jobs        j ON ( e.job_id = j.job_id )
+    JOIN departments d ON ( e.department_id = d.department_id )
+    JOIN locations   l ON ( d.location_id = l.location_id )
 ORDER BY
     e.employee_id;
+    
+-------------------------------------------------------------------------
+-- Incluindo condições adicionais a condição de JOIN na cláusula WHERE --
+-------------------------------------------------------------------------
+
+SELECT
+    e.employee_id,
+    e.last_name,
+    e.salary,
+    e.department_id,
+    d.department_name
+FROM
+    employees e
+    JOIN departments d ON ( e.department_id = d.department_id )
+WHERE
+    ( e.salary BETWEEN 10000 AND 15000 );
+    
