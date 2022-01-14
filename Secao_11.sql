@@ -310,9 +310,13 @@ FROM
 ORDER BY
     d.department_id;
 
+---------------------------------------------------------
+-- Gerando um produto cartesiano utilizando CROSS JOIN --
+---------------------------------------------------------
 
-
-
+SELECT last_name, department_name
+FROM employees
+    CROSS JOIN departments;
 
 
 
