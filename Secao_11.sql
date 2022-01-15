@@ -58,9 +58,15 @@ FROM
 -- JOIN com a cláusula USING --
 -------------------------------
 
-SELECT e.employee_id, e.last_name, d.location_id, department_id, d.department_name
-FROM employees e
-    INNER JOIN departments d USING (department_id);
+SELECT
+    e.employee_id,
+    e.last_name,
+    d.location_id,
+    department_id,
+    d.department_name
+FROM
+    employees e
+    INNER JOIN departments d USING ( department_id );
 
 SELECT
     e.employee_id,
@@ -281,19 +287,31 @@ ORDER BY
 -- LEFT OUTER JOIN --
 ---------------------
 
-SELECT e.first_name, e.last_name, d.department_id, d.department_name
-FROM employees e LEFT OUTER JOIN departments d
-    ON (e.department_id = d.department_id)
-ORDER BY d.department_id;
+SELECT
+    e.first_name,
+    e.last_name,
+    d.department_id,
+    d.department_name
+FROM
+    employees   e
+    LEFT OUTER JOIN departments d ON ( e.department_id = d.department_id )
+ORDER BY
+    d.department_id;
 
 ----------------------
 -- RIGHT OUTER JOIN --
 ----------------------
 
-SELECT d.department_id, d.department_name, e.first_name, e.last_name
-FROM employees e RIGHT OUTER JOIN departments d
-    ON (e.department_id = d.department_id)
-ORDER BY d.department_id;
+SELECT
+    d.department_id,
+    d.department_name,
+    e.first_name,
+    e.last_name
+FROM
+    employees   e
+    RIGHT OUTER JOIN departments d ON ( e.department_id = d.department_id )
+ORDER BY
+    d.department_id;
 
 ---------------------
 -- FULL OUTER JOIN -- 
@@ -314,8 +332,11 @@ ORDER BY
 -- Gerando um produto cartesiano utilizando CROSS JOIN --
 ---------------------------------------------------------
 
-SELECT last_name, department_name
-FROM employees
+SELECT
+    last_name,
+    department_name
+FROM
+    employees
     CROSS JOIN departments;
     
 ------------
@@ -330,43 +351,61 @@ FROM employees
 -- EquiJoin utilizando sintaxe Oracle --
 ----------------------------------------
 
-SELECT e.employee_id, e.last_name, e.department_id, d.department_id, d.location_id
-FROM employees e,
-     departments d
-WHERE (e.department_id = d.department_id)
-ORDER BY e.department_id;
+SELECT
+    e.employee_id,
+    e.last_name,
+    e.department_id,
+    d.department_id,
+    d.location_id
+FROM
+    employees   e,
+    departments d
+WHERE
+    ( e.department_id = d.department_id )
+ORDER BY
+    e.department_id;
 
 ----------------------------------------------------------
 -- Joins entre várias tabelas utilizando sintaxe Oracle --
 ----------------------------------------------------------
 
-SELECT e.employee_id, j.job_title, d.department_name, l.city, l.state_province, l.country_id
+SELECT
+    e.employee_id,
+    j.job_title,
+    d.department_name,
+    l.city,
+    l.state_province,
+    l.country_id
+FROM
+    employees   e,
+    jobs        j,
+    departments d,
+    locations   l
+WHERE
+    ( e.job_id = j.job_id )
+    AND ( d.department_id = e.department_id )
+    AND ( d.location_id = l.location_id )
+ORDER BY
+    e.employee_id;
+    
+-----------------------------------------------------------------------
+-- Incluindo condições adicionais e condições de Join utilizando AND --
+-----------------------------------------------------------------------
+
+SELECT e.employee_id, e.salary, j.job_title,
+        d.department_name, l.city, l.state_province, l.country_id
 FROM employees e,
      jobs j,
      departments d,
      locations l
 WHERE (e.job_id = j.job_id) AND
       (d.department_id = e.department_id) AND
-      (d.location_id = l.location_id)
+      (d.location_id = l.location_id) AND
+      (e.salary >= 1000)
 ORDER BY e.employee_id;
-     
 
 
 
 
 
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
     
