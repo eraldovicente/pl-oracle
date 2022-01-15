@@ -188,8 +188,8 @@ DROP TABLE job_grades;
 
 CREATE TABLE job_grades (
     grade_level VARCHAR(2) NOT NULL,
-    lowest_ssl  NUMBER(11, 2),
-    highest_ssl NUMBER(11, 2),
+    lowest_sal  NUMBER(11, 2),
+    highest_sal NUMBER(11, 2),
     CONSTRAINT job_grades_pk PRIMARY KEY ( grade_level )
 );
 
@@ -403,6 +403,20 @@ WHERE (e.job_id = j.job_id) AND
       (d.location_id = l.location_id) AND
       (e.salary >= 1000)
 ORDER BY e.employee_id;
+
+-------------------------------------------
+-- NonequiJoin utilizando sintaxe Oracle --
+-------------------------------------------
+
+SELECT e.employee_id, e.salary, j.grade_level, j.lowest_sal, j.highest_sal
+FROM employees e,
+     job_grades j
+WHERE NVL(e.salary,0) BETWEEN j.lowest_sal AND j.highest_sal
+ORDER BY e.salary;
+     
+
+
+
 
 
 
