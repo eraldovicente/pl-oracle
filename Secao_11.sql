@@ -317,6 +317,33 @@ ORDER BY
 SELECT last_name, department_name
 FROM employees
     CROSS JOIN departments;
+    
+------------
+-- Aula 6 -- 
+------------
+
+-------------------------------------
+-- Joins utilizando sintaxe Oracle --
+-------------------------------------
+
+----------------------------------------
+-- EquiJoin utilizando sintaxe Oracle --
+----------------------------------------
+
+SELECT e.employee_id, e.last_name, e.department_id, d.department_id, d.location_id
+FROM employees e,
+     departments d
+WHERE (e.department_id = d.department_id)
+ORDER BY e.department_id;
+
+
+
+
+
+
+
+
+
 
 
 
