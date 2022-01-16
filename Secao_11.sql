@@ -413,7 +413,27 @@ FROM employees e,
      job_grades j
 WHERE NVL(e.salary,0) BETWEEN j.lowest_sal AND j.highest_sal
 ORDER BY e.salary;
-     
+
+------------------------------------------
+-- Outer Join utilizando sintaxe Oracle --
+------------------------------------------
+
+SELECT e.first_name, e.last_name, d.department_id, d.department_name
+FROM employees e,
+     departments d
+WHERE e.department_id = d.department_id(+)
+ORDER BY e.department_id;
+
+SELECT e.first_name, e.last_name, d.department_id, d.department_name
+FROM employees e,
+     departments d
+WHERE e.department_id(+) = d.department_id
+ORDER BY e.first_name;
+
+
+
+
+
 
 
 
