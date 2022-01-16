@@ -252,13 +252,13 @@ SELECT
     e.employee_id,
     e.salary,
     j.grade_level,
-    j.lowest_ssl,
-    j.highest_ssl
+    j.lowest_sal,
+    j.highest_sal
 FROM
     employees e
     JOIN job_grades j ON nvl(
         e.salary, 0
-    ) BETWEEN j.lowest_ssl AND highest_ssl
+    ) BETWEEN j.lowest_sal AND highest_sal
 ORDER BY
     e.salary;
 
@@ -266,16 +266,16 @@ SELECT
     e.employee_id,
     e.salary,
     j.grade_level,
-    j.lowest_ssl,
-    j.highest_ssl
+    j.lowest_sal,
+    j.highest_sal
 FROM
     employees e
     JOIN job_grades j ON nvl(
         e.salary, 0
-    ) >= j.lowest_ssl
+    ) >= j.lowest_sal
                          AND nvl(
         e.salary, 0
-    ) <= j.highest_ssl
+    ) <= j.highest_sal
 ORDER BY
     e.salary;
     
@@ -429,6 +429,19 @@ FROM employees e,
      departments d
 WHERE e.department_id(+) = d.department_id
 ORDER BY e.first_name;
+
+-----------------------------------------
+-- Self-join utilizando sintaxe Oracle --
+-----------------------------------------
+
+SELECT empregado.employee_id "Id empregado", empregado.last_name "Sobrenome empregado",
+       gerente.employee_id "Id gerente", gerente.last_name "Sobrenome gerente"
+FROM employees empregado,
+     employees gerente
+WHERE (empregado.manager_id = gerente.employee_id)
+ORDER BY empregado.employee_id;
+
+DESC employees;
 
 
 
