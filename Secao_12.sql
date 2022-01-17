@@ -191,3 +191,17 @@ FROM departments d
 WHERE d.department_id NOT IN (SELECT NVL(e.department_id,0)
                               FROM employees e);
 
+-----------------------------------------
+-- Idem utilizando EXISTS e NOT EXISTS --
+-----------------------------------------
+
+--------------------------------
+-- Utilizando operador EXISTS --
+--------------------------------
+
+SELECT d.department_id, d.department_name
+FROM departments d
+WHERE EXISTS (SELECT e.department_id
+              FROM employees e
+              WHERE d.department_id = e.department_id);
+
