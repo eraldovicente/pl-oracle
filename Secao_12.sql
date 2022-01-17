@@ -155,7 +155,14 @@ SELECT emp.employee_id, emp.last_name
 FROM employees emp
 WHERE emp.employee_id IN (SELECT mgr.manager_id
                           FROM employees mgr);
-                 
+                          
+------------------------------------------------------------------------
+-- Cuidados com valores nulos em uma sub-consulta com operador NOT IN --
+------------------------------------------------------------------------
 
+SELECT emp.employee_id, emp.last_name
+FROM employees emp
+WHERE emp.employee_id NOT IN (SELECT mgr.manager_id
+                              FROM employees mgr);
 
 
