@@ -164,5 +164,30 @@ SELECT emp.employee_id, emp.last_name
 FROM employees emp
 WHERE emp.employee_id NOT IN (SELECT mgr.manager_id
                               FROM employees mgr);
+                              
+------------
+-- Aula 3 --
+------------
 
+---------------------------------------------
+-- Utilizando operador EXISTS e NOT EXISTS --
+---------------------------------------------
+
+----------------------------
+-- Utilizando operador IN --
+----------------------------
+
+SELECT d.department_id, d.department_name
+FROM departments d
+WHERE d.department_id IN (SELECT e.department_id
+                          FROM employees e);
+
+--------------------------------
+-- Utilizando operador NOT IN --
+--------------------------------
+
+SELECT d.department_id, d.department_name
+FROM departments d
+WHERE d.department_id NOT IN (SELECT NVL(e.department_id,0)
+                              FROM employees e);
 
