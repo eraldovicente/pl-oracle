@@ -118,3 +118,22 @@ WHERE last_name = 'King';
 
 COMMIT;
 
+SELECT *
+FROM employees
+WHERE last_name = 'King';
+
+---------------------------------------------------
+-- Utilizando o comando UPDATE com sub-consultas --
+---------------------------------------------------
+
+UPDATE employees
+SET job_id = (SELECT job_id
+                        FROM employees
+                        WHERE employee_id = 141),
+    salary = (SELECT salary
+                        FROM employees
+                        WHERE employee_id = 141)
+WHERE employee_id = 139;
+
+COMMIT;
+
