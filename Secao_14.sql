@@ -21,7 +21,7 @@ VALUES (280, 'Project Management', 103, 1400);
 desc departments
 
 INSERT INTO departments
-VALUES (290, 'Data Science', NULL, NULL);
+VALUES (301, 'Inovation', NULL, NULL);
 
 -----------------------------------------------------------
 -- Inserindo linhas com valores nulos - método implícito --
@@ -29,7 +29,7 @@ VALUES (290, 'Data Science', NULL, NULL);
 
 INSERT INTO departments(department_id,
 department_name)
-VALUES (300, 'Business Inteligence');
+VALUES (302, 'IOT');
 
 --------------------------
 -- Efetivando transação --
@@ -37,6 +37,17 @@ VALUES (300, 'Business Inteligence');
 
 COMMIT;
 
+-------------------------------------------------------
+-- Inserindo valores especiais retornados de funções --
+-------------------------------------------------------
+
+INSERT INTO employees 
+            (employee_id, first_name, last_name, email,
+             phone_number, hire_date, job_id, salary,
+             commission_pct, manager_id, department_id)
+       VALUES (207, 'Rock', 'Balboa', 'DROCK',
+              '525.342.237', SYSDATE, 'IT_PROG',7000,
+              NULL, 103, 60);
 
 
 
