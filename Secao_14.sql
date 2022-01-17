@@ -137,3 +137,11 @@ WHERE employee_id = 139;
 
 COMMIT;
 
+---------------------------------
+-- Utilizando o comando DELETE --
+---------------------------------
+
+DELETE FROM countries
+WHERE country_name = 'Nigeria';
+
+ROLLBACK;
