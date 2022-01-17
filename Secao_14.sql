@@ -23,10 +23,19 @@ desc departments
 INSERT INTO departments
 VALUES (290, 'Data Science', NULL, NULL);
 
+-----------------------------------------------------------
+-- Inserindo linhas com valores nulos - método implícito --
+-----------------------------------------------------------
 
+INSERT INTO departments(department_id,
+department_name)
+VALUES (300, 'Business Inteligence');
 
+--------------------------
+-- Efetivando transação --
+--------------------------
 
-
+COMMIT;
 
 
 
