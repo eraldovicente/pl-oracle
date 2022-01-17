@@ -214,8 +214,24 @@ FROM departments d
 WHERE NOT EXISTS (SELECT e.department_id
               FROM employees e
               WHERE d.department_id = e.department_id);
+              
+-----------------------
+-- Seção 12 - aula 4 --
+-----------------------
 
+------------------------------
+-- Utilizando sub-consultas --
+------------------------------
 
+----------------------------------------------
+-- Utilizando sub-consultas correlacionadas --
+----------------------------------------------
+
+SELECT e1.employee_id, e1.first_name, e1.last_name, e1.department_id, e1.salary
+FROM employees e1
+WHERE e1.salary >= (SELECT TRUNC(AVG(NVL(SALARY,0)),0)
+                    FROM employees e2
+                    WHERE e1.department_id = e2.department_id);
 
 
 
