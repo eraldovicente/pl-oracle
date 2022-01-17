@@ -36,7 +36,16 @@ WHERE salary =
             (SELECT AVG(NVL(salary,0))
             FROM employees
             GROUP BY department_id);
-            
+
+---------------------------------------------------------------
+-- O que ocorre quando a sub-consulta retorna nenhuma linha? --
+---------------------------------------------------------------
+
+SELECT employee_id, first_name, last_name
+FROM employees
+WHERE last_name = (SELECT last_name
+                  FROM employees
+                  WHERE last_name = 'Suruki');
 
 
 
