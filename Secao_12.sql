@@ -25,6 +25,25 @@ FROM employees e1
 GROUP BY e1.department_id
 HAVING MAX(salary) < (SELECT AVG(e2.salary)
                      FROM employees e2);
+                     
+-----------------------------------------------
+-- Erros utilizando sub-consultas single-row --
+-----------------------------------------------
+
+SELECT employee_id, first_name, last_name
+FROM employees
+WHERE salary =
+            (SELECT AVG(NVL(salary,0))
+            FROM employees
+            GROUP BY department_id);
+            
+
+
+
+
+
+
+
     
 
 
