@@ -103,5 +103,18 @@ COMMIT;
 SELECT *
 FROM sales_reps;
 
+---------------------------------
+-- Utilizando o comando UPDATE --
+---------------------------------
 
+UPDATE employees
+SET salary = salary * 1.2;
+
+ROLLBACK;
+
+UPDATE employees
+SET salary = salary * 1.2
+WHERE last_name = 'King';
+
+COMMIT;
 
