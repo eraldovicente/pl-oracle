@@ -124,4 +124,18 @@ WHERE salary NOT IN
                 (SELECT AVG(NVL(salary,0))
                  FROM employees
                  GROUP BY department_id);
-                 
+
+-----------------------------------------------------------
+-- Utilizando operador ANY em sub-consultas multiple-row --
+-----------------------------------------------------------
+
+SELECT employee_id, last_name, job_id, salary
+FROM employees
+WHERE salary < ANY 
+                (SELECT salary
+                 FROM employees
+                 WHERE job_id = 'IT_PROG');
+
+
+
+
