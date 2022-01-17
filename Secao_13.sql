@@ -45,7 +45,44 @@ FROM employees
 WHERE department_id IN (60, 90, 100)
 ORDER BY employee_id;
 
+-------------------------------
+-- Utilizando operador MINUS --
+-------------------------------
 
+SELECT employee_id, job_id
+FROM employees
+WHERE department_id IN (60, 90, 100)
+MINUS
+SELECT employee_id, job_id
+FROM employees
+WHERE job_id = 'IT_PROG'
+ORDER BY employee_id;
+
+--------------------------------------------------------------------------------
+-- Cuidados com os tipos de dados na lista de colunas ou expressões de SELECT --
+--------------------------------------------------------------------------------
+
+SELECT employee_id, job_id, hire_date
+FROM employees
+WHERE department_id IN (60, 90, 100)
+UNION
+SELECT employee_id, job_id, salary
+FROM employees
+WHERE job_id = 'IT_PROG'
+ORDER BY employee_id;
+
+-----------------------
+-- Corrigindo o erro --
+-----------------------
+
+SELECT employee_id, job_id, salary
+FROM employees
+WHERE department_id IN (60, 90, 100)
+UNION
+SELECT employee_id, job_id, salary
+FROM employees
+WHERE job_id = 'IT_PROG'
+ORDER BY employee_id;
 
 
 
