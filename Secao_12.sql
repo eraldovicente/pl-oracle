@@ -135,7 +135,18 @@ WHERE salary < ANY
                 (SELECT salary
                  FROM employees
                  WHERE job_id = 'IT_PROG');
+                
+-----------------------------------------------------------
+-- Utilizando operador ALL em sub-consultas multiple-row --
+-----------------------------------------------------------
 
+SELECT employee_id, last_name, job_id, salary
+FROM employees
+WHERE salary < ALL 
+                (SELECT salary
+                 FROM   employees
+                 WHERE  job_id = 'IT_PROG');
+                 
 
 
 
