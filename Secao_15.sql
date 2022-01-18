@@ -68,6 +68,14 @@ SELECT employee_id, first_name, rowid, LENGTH(rowid)
 from employees
 WHERE rowid = 'AAASe6AAMAAAADMAAA';
 
+----------------------------------------------------------------
+-- Consultando as tabelas existentes pelo dicionário de dados --
+----------------------------------------------------------------
+
+DESC user_tables;
+
+SELECT table_name
+FROM user_tables;
 
 
 
