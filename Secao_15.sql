@@ -125,6 +125,22 @@ FROM employees_department60;
 SELECT *
 FROM user_recyclebin;
 
+-----------------------
+-- Seção 15 - aula 2 --
+-----------------------
+
+----------------------------------------------------
+-- Comandos DDL - Alterando a estrutura da tabela --
+----------------------------------------------------
+
+------------------------------------------
+-- ALTER TABLE - Adicionando uma coluna --
+------------------------------------------
+
+ALTER TABLE projects
+ADD department_id NUMBER(3);
+
+DESC projects;
 
 
 
