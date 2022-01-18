@@ -169,6 +169,17 @@ MODIFY (project_code VARCHAR(6));
 
 DESC projects;
 
+-----------------------------------------
+-- ALTER TABLE - Renomeando uma coluna --
+-----------------------------------------
+
+ALTER TABLE projects
+RENAME COLUMN project_name TO name;
+
+DESC projects;
+
+
+
 
 
 
