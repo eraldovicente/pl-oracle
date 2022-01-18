@@ -160,6 +160,15 @@ ADD (department_id NUMBER(4) NOT NULL);
 
 DESC projects;
 
+------------------------------------------
+-- ALTER TABLE - Modificando uma coluna --
+------------------------------------------
+
+ALTER TABLE projects
+MODIFY (project_code VARCHAR(6));
+
+DESC projects;
+
 
 
 
