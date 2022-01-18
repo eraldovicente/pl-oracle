@@ -77,5 +77,16 @@ DESC user_tables;
 SELECT table_name
 FROM user_tables;
 
+-----------------------------------------------------
+-- Consultando os objetos do tipo TABLE do usuário --
+-----------------------------------------------------
+
+DESC user_objects;
+
+SELECT object_name, object_type
+FROM user_objects
+WHERE object_type = 'TABLE';
+
+
 
 
