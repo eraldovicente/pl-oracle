@@ -205,6 +205,22 @@ CREATE TABLE teams (
         REFERENCES employees ( employee_id )
 );
 
+--------------------------------------------------
+-- Definindo constraint CHECK a nível de coluna --
+--------------------------------------------------
+
+------------------------------------------------------------------------
+-- (Oracle functions e pseudo colunas não podem ser referenciadas na constraint CHECK) --
+------------------------------------------------------------------------
+
+SELECT uid, userenv('language'), user, sysdate
+FROM dual;
+
+SELECT employee_id, first_name, rownum
+FROM employees;
+
+
+
 
 
 
