@@ -113,4 +113,19 @@ TRUNCATE TABLE employees_department60;
 SELECT *
 FROM employees_department60;
 
+----------------
+-- DROP TABLE --
+----------------
+
+DROP TABLE employees_department60;
+
+SELECT *
+FROM employees_department60;
+
+
+
+
+
+
+
 
