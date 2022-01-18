@@ -87,6 +87,23 @@ SELECT object_name, object_type
 FROM user_objects
 WHERE object_type = 'TABLE';
 
+----------------------------------------------------
+-- Criando uma tabela utilizando uma sub-consulta --
+----------------------------------------------------
+
+DROP TABLE employees_department60;
+
+CREATE TABLE employees_department60
+AS
+SELECT employee_id, last_name, salary*12 ANUAL, hire_date
+FROM employees
+WHERE department_id = 60;
+
+DESC employees_department60;
+
+SELECT *
+FROM employees_department60;
+
 
 
 
