@@ -178,6 +178,12 @@ RENAME COLUMN project_name TO name;
 
 DESC projects;
 
+-----------------------------
+-- ALTER TABLE - READ ONLY --
+-----------------------------
+
+ALTER TABLE employees READ ONLY;
+
 
 
 
