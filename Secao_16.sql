@@ -219,7 +219,30 @@ FROM dual;
 SELECT employee_id, first_name, rownum
 FROM employees;
 
+----------------------------------------
+-- Constraint CHECK a nível de coluna --
+----------------------------------------
 
+DROP TABLE projects cascade constraints;
+
+CREATE TABLE projects (
+    project_id    NUMBER(6) NOT NULL
+        CONSTRAINT projects_project_id_pk PRIMARY KEY,
+    project_code  VARCHAR2(10) NOT NULL
+        CONSTRAINT projects_project_code_uk UNIQUE,
+    project_name  VARCHAR2(100) NOT NULL,
+    department_id NUMBER(4) NOT NULL
+        CONSTRAINT projects_department_id_fk
+            REFERENCES departments,
+    creation_date DATE DEFAULT sysdate NOT NULL,
+    start_date    DATE,
+    end_date      DATE,
+    status        VARCHAR2(20) NOT NULL,
+    priority      VARCHAR2(10) NOT NULL,
+    budget        NUMBER(11, 2) NOT NULL
+    CONSTRAINT projects_budget_ck CHECK (budget > 0),
+    description   VARCHAR2(400) NOT NULL
+);
 
 
 
