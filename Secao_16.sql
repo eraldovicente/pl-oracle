@@ -281,3 +281,33 @@ CREATE TABLE projects (
         REFERENCES departments ( department_id ),
     CONSTRAINT projects_budget_ck CHECK ( budget > 0 )
 );
+
+----------------------------------------
+-- Violar constraints resulta em erro --
+----------------------------------------
+
+INSERT INTO projects (
+    project_id,
+    project_code,
+    project_name,
+    department_id,
+    creation_date,
+    start_date,
+    end_date,
+    status,
+    priority,
+    budget,
+    description
+) VALUES (
+    1,
+    'ERPIMP',
+    'ERP Implementation',
+    77,
+    sysdate,
+    NULL,
+    NULL,
+    'Aproved',
+    'HIGH',
+    1000000.00,
+    'Oracle ERP Implementation'
+);
