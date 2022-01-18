@@ -151,6 +151,16 @@ DROP COLUMN department_id;
 
 DESC projects;
 
+------------------------------------------
+-- ALTER TABLE - Adicionando uma coluna --
+------------------------------------------
+
+ALTER TABLE projects
+ADD (department_id NUMBER(4) NOT NULL);
+
+DESC projects;
+
+
 
 
 
