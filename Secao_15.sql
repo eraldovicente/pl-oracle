@@ -142,6 +142,20 @@ ADD department_id NUMBER(3);
 
 DESC projects;
 
+----------------------------------------
+-- ALTER TABLE - Removendo uma coluna --
+----------------------------------------
+
+ALTER TABLE projects
+DROP COLUMN department_id;
+
+DESC projects;
+
+
+
+
+
+
 
 
 
