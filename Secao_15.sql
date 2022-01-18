@@ -54,9 +54,19 @@ DESC projects;
 
 DESC teams;
 
+----------------------------------
+-- Tipo ROWID - endereço lógico --
+----------------------------------
 
+-------------------------------------------------------------------
+-- O Acesso por rowid é o método de acesso mais rápido no Oracle --
+-------------------------------------------------------------------
 
+DESC employees;
 
+SELECT employee_id, first_name, rowid, LENGTH(rowid)
+from employees
+WHERE rowid = 'AAASe6AAMAAAADMAAA';
 
 
 
