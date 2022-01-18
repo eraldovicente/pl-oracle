@@ -184,6 +184,11 @@ DESC projects;
 
 ALTER TABLE employees READ ONLY;
 
+------------------------------
+-- ALTER TABLE - READ WRITE --
+------------------------------
+
+ALTER TABLE employees READ WRITE;
 
 
 
