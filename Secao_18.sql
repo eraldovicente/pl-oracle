@@ -43,6 +43,26 @@ FROM dual;
 SELECT employees_seq.CURRVAL
 FROM dual;
 
+------------------------------------
+-- Removendo lacunas na sequência --
+------------------------------------
+
+-----------------------------
+-- Removendo uma sequência --
+-----------------------------
+
+DROP SEQUENCE employees_seq;
+
+-----------------------------
+-- Recriando uma sequência --
+-----------------------------
+
+CREATE SEQUENCE employees_seq
+ START WITH 208
+ INCREMENT BY 1
+ NOMAXVALUE
+ NOCACHE
+ NOCYCLE;
 
 
 
