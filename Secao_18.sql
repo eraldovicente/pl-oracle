@@ -29,6 +29,16 @@ CREATE SEQUENCE employees_seq
  SELECT *
  FROM user_sequences;
  
+ --------------------------------------------
+ -- Recuperando próximo valor da sequência --
+---------------------------------------------
+
+SELECT employees_seq.NEXTVAL
+FROM dual;
+
+
+
+
 
 
 
