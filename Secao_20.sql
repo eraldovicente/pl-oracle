@@ -31,7 +31,7 @@ DROP SYNONYM departamentos;
 DROP SYNONYM dept;
 
 -----------------------------------------
--- O DBA pode criar sinônimos publicos --
+-- O DBA pode criar sinônimos públicos --
 -----------------------------------------
 
 ----------------------------
@@ -60,6 +60,13 @@ FROM departamentos;
 SELECT *
 FROM dept;
 
+---------------------------------------------
+-- Removendo sinônimos públicos - como SYS --
+---------------------------------------------
+
+DROP PUBLIC SYNONYM departamentos;
+
+DROP PUBLIC SYNONYM dept;
 
 
 
