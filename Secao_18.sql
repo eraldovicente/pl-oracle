@@ -3,11 +3,11 @@
 -----------------------
 
 --------------------------------------
--- Criando e gerenciando sequencias --
+-- Criando e gerenciando sequências --
 --------------------------------------
 
 ---------------------------
--- Criando uma sequencia --
+-- Criando uma sequência --
 ---------------------------
 
 SELECT MAX(employee_id)
@@ -21,6 +21,14 @@ CREATE SEQUENCE employees_seq
  NOMAXVALUE
  NOCACHE
  NOCYCLE;
+ 
+ -----------------------------------------------------
+ -- Consultando sequências pelo dicionário de dados --
+ -----------------------------------------------------
+ 
+ SELECT *
+ FROM user_sequences;
+ 
 
 
 
