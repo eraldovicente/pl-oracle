@@ -12,7 +12,15 @@ FOR departments;
 CREATE SYNONYM dept
 FOR departments;
 
- 
+--------------------------
+-- Utilizando sinônimos --
+--------------------------
+
+SELECT *
+FROM departamentos;
+
+SELECT *
+FROM dept;
 
 
 
