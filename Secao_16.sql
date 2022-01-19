@@ -411,6 +411,18 @@ DISABLE CONSTRAINT projects_department_id_fk;
 ALTER TABLE projects
 DISABLE CONSTRAINT projects_project_id_pk CASCADE;
 
+--------------------------------
+-- Habilitando uma constraint --
+--------------------------------
+
+ALTER TABLE projects
+ENABLE CONSTRAINT projects_department_id_fk;
+
+ALTER TABLE projects
+ENABLE CONSTRAINT projects_project_id_pk;
+
+
+
 
 
 
