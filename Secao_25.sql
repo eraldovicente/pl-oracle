@@ -21,6 +21,29 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('String caracteres tamanho variável = ' || vCaracterTamVariavel);
 END;
 
+------------------------------------
+-- Declarando variáveis tipo DATE --
+------------------------------------
+
+DECLARE
+    vData1 DATE := '19/01/2022';
+    vData2 DATE := '19/01/22';
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Data1 = ' || vData1);
+    DBMS_OUTPUT.PUT_LINE('Data2 = ' || vData2);
+END;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
