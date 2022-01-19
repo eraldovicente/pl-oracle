@@ -44,6 +44,25 @@ FOR hr.departments;
 CREATE PUBLIC SYNONYM dept
 FOR hr.departments;
 
+SELECT *
+FROM departamentos;
+
+SELECT *
+FROM dept;
+
+-------------------------------
+-- Acessando como usuário HR --
+-------------------------------
+
+SELECT *
+FROM departamentos;
+
+SELECT *
+FROM dept;
+
+
+
+
 
 
 
