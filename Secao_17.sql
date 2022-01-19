@@ -17,8 +17,12 @@ WHERE department_id = 60;
 
 DESC vemployeesdept60;
 
+--------------------------------------------
+-- Recuperando dados utilizando uma visão --
+--------------------------------------------
 
-
+SELECT *
+FROM vemployeesdept60;
 
 
 
