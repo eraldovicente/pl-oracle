@@ -59,6 +59,12 @@ FROM user_indexes ix
 WHERE ix.table_name = 'EMPLOYEES'
 ORDER BY ix.index_name, ic.column_position;
 
+-------------------------
+-- Removendo um índice --
+-------------------------
+
+DROP INDEX employees_last_name_idx;
+
 
 
 
