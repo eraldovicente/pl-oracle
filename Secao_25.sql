@@ -42,11 +42,22 @@ END;
 ------------------------------------------
 
 DECLARE
-    vPi CONSTANT NUMBER(30,15) := 3.141592653589793;
+    vPi CONSTANT NUMBER(38,15) := 3.141592653589793;
 BEGIN
     DBMS_OUTPUT.PUT_LINE('vPi = ' || vPi);
 END;
 
+--------------------------------------------------
+-- Declarando uma constante tipo CHAR e VARCHAR --
+--------------------------------------------------
+
+DECLARE
+    vCaracterTamFixo CONSTANT CHAR(2) := 'PE';
+    vCaracterTamVariavel CONSTANT VARCHAR(100) := 'Igarassu, PE';
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('String caracteres tamanho fixo = ' || vCaracterTamFixo);
+    DBMS_OUTPUT.PUT_LINE('String caracteres tamanho variável = ' || vCaracterTamVariavel);
+END;
 
 
 
