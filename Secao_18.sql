@@ -36,6 +36,12 @@ CREATE SEQUENCE employees_seq
 SELECT employees_seq.NEXTVAL
 FROM dual;
 
+----------------------------------------------
+-- Recuperando o valor corrente da sequence --
+----------------------------------------------
+
+SELECT employees_seq.CURRVAL
+FROM dual;
 
 
 
