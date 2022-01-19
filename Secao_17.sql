@@ -60,7 +60,11 @@ FROM employees
 WHERE department_id = 20
 WITH READ ONLY;
 
+-------------------------
+-- Removendo uma visão --
+-------------------------
 
+DROP VIEW vemployeesdept20;
 
 
 
