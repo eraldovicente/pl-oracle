@@ -36,6 +36,12 @@ SELECT *
 FROM employees
 WHERE last_name = 'Himuro' AND
       first_name = 'Guy';
+      
+---------------------------------------------
+-- Reconstruindo e reorganizando um índice --
+---------------------------------------------
+
+ALTER INDEX employees_last_name_first_name_idx REBUILD; 
 
 
 
