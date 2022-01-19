@@ -33,6 +33,28 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Data2 = ' || vData2);
 END;
 
+--------------------------
+-- Declarando constante --
+--------------------------
+
+------------------------------------------
+-- Declarando uma constante tipo NUMBER --
+------------------------------------------
+
+DECLARE
+    vPi CONSTANT NUMBER(30,15) := 3.141592653589793;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('vPi = ' || vPi);
+END;
+
+
+
+
+
+
+
+
+
 
 
 
