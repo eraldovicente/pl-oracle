@@ -82,7 +82,24 @@ ORDER BY employee_id DESC;
 
 COMMIT;
  
- 
+---------------------------------------------
+-- Colocando valores da sequência em cache --
+---------------------------------------------
+
+-------------------------------
+-- Modificando uma sequência --
+-------------------------------
+
+ALTER SEQUENCE employees_seq
+MAXVALUE 999999
+CACHE 20;
+
+
+
+
+
+
+
  
 
 
