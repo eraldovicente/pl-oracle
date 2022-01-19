@@ -375,3 +375,70 @@ WHERE
 ORDER BY
     co.constraint_name,
     cc.position;
+    
+------------
+-- Aula 2 --
+------------
+
+-------------------------------------------
+-- Removendo uma constraint e uma tabela --
+-------------------------------------------
+
+ALTER TABLE projects
+DROP CONSTRAINT projects_department_id_fk;
+
+ALTER TABLE projects
+DROP CONSTRAINT projects_project_id_pk CASCADE;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
