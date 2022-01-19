@@ -401,6 +401,17 @@ REFERENCES departments(department_id);
 ALTER TABLE projects
 ADD CONSTRAINT projects_project_id_pk PRIMARY KEY (project_id);
 
+----------------------------------
+-- Desabilitando uma constraint --
+----------------------------------
+
+ALTER TABLE projects
+DISABLE CONSTRAINT projects_department_id_fk;
+
+ALTER TABLE projects
+DISABLE CONSTRAINT projects_project_id_pk CASCADE;
+
+
 
 
 
