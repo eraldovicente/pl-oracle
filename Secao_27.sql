@@ -390,9 +390,9 @@ LOOP
 END LOOP;
 END;
 
---------------
--- FOR LOOP --
---------------
+------------------------------
+-- FOR LOOP - É mais seguro --
+------------------------------
 
 SET SERVEROUTPUT ON
 ACCEPT pLimite PROMPT 'Digite o valor do limite: ';
@@ -404,6 +404,27 @@ BEGIN
          DBMS_OUTPUT.PUT_LINE('Número = ' || TO_CHAR(i));
     END LOOP;
 END;
+
+----------------
+-- WHILE LOOP --
+----------------
+
+SET SERVEROUTPUT ON
+ACCEPT pLimite PROMPT 'Digite o valor do limite: ';
+DECLARE
+    vNumero NUMBER(38) := 1;
+    vLimite  NUMBER(38) := &pLimite;
+BEGIN
+    WHILE vNumero <= vLimite LOOP
+        DBMS_OUTPUT.PUT_LINE('Número = ' || TO_CHAR(vNumero));
+        vNumero := vNumero + 1;
+    END LOOP;
+END;
+
+
+
+
+
 
 
 
