@@ -44,6 +44,40 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Salary: ' || vSalary);
 END;
 
+SET SERVEROUTPUT ON
+DECLARE
+    vJob_id employees.job_id%type := 'IT_PROG';
+    vAvg_Salary employees.salary%type;
+    vSum_Salary employees.salary%type;
+BEGIN
+    SELECT ROUND(AVG(salary),2), ROUND(SUM(salary),2)
+    INTO vAvg_Salary, vSum_Salary
+    FROM employees
+    WHERE job_id = vjob_id;
+    DBMS_OUTPUT.PUT_LINE('Cargo: ' || vJob_id);
+    DBMS_OUTPUT.PUT_LINE('Média de salários: ' || vAvg_Salary);
+    DBMS_OUTPUT.PUT_LINE('Somatório de salários: ' || vSum_Salary);
+END;
+
+------------------------------------
+-- Erro ORA-01422 - Too many rows --
+------------------------------------
+
+SET SERVEROUTPUT ON
+DECLARE
+    vJob_id employees.job_id%type := 'IT_PROG';
+    vAvg_Salary employees.salary%type;
+    vSum_Salary employees.salary%type;
+BEGIN
+    SELECT job_id, ROUND(AVG(salary),2), ROUND(SUM(salary),2)
+    INTO vJob_id, vAvg_Salary, vSum_Salary
+    FROM employees
+    GROUP BY job_id;
+    DBMS_OUTPUT.PUT_LINE('Cargo: ' || vJob_id);
+    DBMS_OUTPUT.PUT_LINE('Média de salários: ' || vAvg_Salary);
+    DBMS_OUTPUT.PUT_LINE('Somatório de salários: ' || vSum_Salary);
+END;
+
 
 
 
