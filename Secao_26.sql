@@ -50,3 +50,32 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE('Media = ' || TO_CHAR(vMedia, '99G999G999D99'));     -- Impressão da média calculada 
 END;
 
+---------------------------------------------------------------------------
+-- Blocos aninhados e escopo de identificadores (variáveis e constantes) --
+---------------------------------------------------------------------------
+
+SET SERVEROUTPUT ON
+DECLARE
+    vbloco1 VARCHAR2(20) := 'Bloco 1';
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Referenciando variáveis do bloco 1: ' || vbloco1);
+    -- Se você referenciar vbloco2 aqui ocorrerá erro.
+    DECLARE
+        vbloco2 VARCHAR2(20) := 'Bloco 2';
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('Referenciando variáveis do bloco 1: ' || vbloco1); 
+        DBMS_OUTPUT.PUT_LINE('Referenciando variáveis do bloco 2: ' || vbloco2);
+    END;
+     DBMS_OUTPUT.PUT_LINE('Referenciando variáveis do bloco 1: ' || vbloco1);
+     -- Se você referenciar vbloco2 aqui ocorrerá erro.
+END;
+
+
+
+
+
+
+
+
+
+
