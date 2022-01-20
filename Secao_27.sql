@@ -125,21 +125,42 @@ BEGIN
     COMMIT;    
 END;
 
+----------------------------------------------
+-- Controlando transações do banco de dados --
+----------------------------------------------
 
+SET SERVEROUTPUT ON
+DECLARE
+    vEmployee_id employees.employee_id%type := 207;
+BEGIN
+    UPDATE employees
+    SET salary = 15000
+    WHERE employee_id = vEmployee_id;
+    COMMIT;
+END;
 
+SET SERVEROUTPUT ON
+DECLARE
+    vEmployee_id employees.employee_id%type := 207;
+BEGIN
+    UPDATE employees
+    SET salary = 20000
+    WHERE employee_id = vEmployee_id;
+    ROLLBACK;
+END;
 
-
-
-
-
-
-
-
-
-
-
-
-
+--SET SERVEROUTPUT ON
+--DECLARE
+--    vEmployee_id employees.employee_id%type := 207;
+--BEGIN
+--    UPDATE employees
+--    SET salary = 20000
+--    WHERE employee_id = vEmployee_id;
+--    INSERT...
+--    DELETE...
+--    
+--    COMMIT;
+--END;
 
 
 
