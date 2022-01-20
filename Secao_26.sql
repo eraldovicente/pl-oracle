@@ -70,6 +70,27 @@ BEGIN
      -- Se você referenciar vbloco2 aqui ocorrerá erro.
 END;
 
+---------------------------------------
+-- Identificadores de blocos/ labels --
+---------------------------------------
+
+SET SERVEROUTPUT ON
+<<BLOCO1>>
+DECLARE
+    vbloco1 VARCHAR2(20) := 'Bloco 1';
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Referenciando variáveis do bloco 1: ' || bloco1.vbloco1);
+    -- Se você referenciar vbloco2 aqui ocorrerá erro.
+    <<BLOCO2>>
+    DECLARE
+        vbloco2 VARCHAR2(20) := 'Bloco 2';
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('Referenciando variáveis do bloco 1: ' || bloco1.vbloco1); 
+        DBMS_OUTPUT.PUT_LINE('Referenciando variáveis do bloco 2: ' || bloco2.vbloco2);
+    END;
+     DBMS_OUTPUT.PUT_LINE('Referenciando variáveis do bloco 1: ' || bloco1.vbloco1);
+     -- Se você referenciar vbloco2 aqui ocorrerá erro.
+END;
 
 
 
