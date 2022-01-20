@@ -390,7 +390,20 @@ LOOP
 END LOOP;
 END;
 
+--------------
+-- FOR LOOP --
+--------------
 
+SET SERVEROUTPUT ON
+ACCEPT pLimite PROMPT 'Digite o valor do limite: ';
+DECLARE
+    vinicio INTEGER(3) := 1;
+    vfim  NUMBER(38) := &pLimite;
+BEGIN
+    FOR i IN vinicio..vfim LOOP
+         DBMS_OUTPUT.PUT_LINE('Número = ' || TO_CHAR(i));
+    END LOOP;
+END;
 
 
 
