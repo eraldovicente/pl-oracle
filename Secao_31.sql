@@ -215,9 +215,9 @@ BEGIN
     END LOOP;
 END;
 
---------------------------------------------
--- Cursor explícito com SELECT FOR UPDATE --
---------------------------------------------
+---------------------------------------------------------------
+-- Cursor explícito com SELECT FOR UPDATE - Usar com cuidado --
+---------------------------------------------------------------
 
 SET SERVEROUTPUT ON
 SET VERIFY OFF
