@@ -129,3 +129,9 @@ FROM
 --------------------------------------------
 
 ALTER FUNCTION fnc_consulta_salario_empregado COMPILE;
+
+-----------------------------------------
+-- Removendo funções de Banco de dados --
+-----------------------------------------
+
+DROP FUNCTION fnc_consulta_salario_empregado;
