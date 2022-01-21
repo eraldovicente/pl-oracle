@@ -94,7 +94,14 @@ EXEC prc_inseri_empregado('Greg', 'Lake', 'GLAKE', '999.999.999-99', SYSDATE, 'I
 
 COMMIT;
 
+--------------------------------------
+-- Consultando o empregado inserido --
+--------------------------------------
 
+SELECT *
+FROM employees
+WHERE first_name = 'Greg' AND
+      last_name = 'Lake';
 
 
 
