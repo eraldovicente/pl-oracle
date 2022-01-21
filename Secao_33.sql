@@ -141,16 +141,68 @@ END;
 ----------------------------------------------
 
 BEGIN
-    prc_aumenta_salario_empregado(109,10);
+    prc_aumenta_salario_empregado(
+                                 109,
+                                 10
+    );
     COMMIT;
 END;
 
+-----------------------------------
+-- Utilizando procedure tipo OUT --
+-----------------------------------
 
+CREATE OR REPLACE PROCEDURE prc_consulta_empregado (
+    pemployee_id    IN NUMBER,
+    pfirst_name     OUT VARCHAR2,
+    plast_name      OUT VARCHAR2,
+    pemail          OUT VARCHAR2,
+    pphone_number   OUT VARCHAR2,
+    pjob_id         OUT VARCHAR2,
+    psalary         OUT NUMBER,
+    pcommission_pct OUT NUMBER,
+    pmanager_id     OUT NUMBER,
+    pdepartment_id  OUT NUMBER
+) IS
+    -- Nenhuma variável declarada
+BEGIN
+    SELECT
+        first_name,
+        last_name,
+        email,
+        phone_number,
+        job_id,
+        salary,
+        commission_pct,
+        manager_id,
+        department_id
+    INTO
+        pfirst_name,
+        plast_name,
+        pemail,
+        pphone_number,
+        pjob_id,
+        psalary,
+        pcommission_pct,
+        pmanager_id,
+        pdepartment_id
+    FROM
+        employees
+    WHERE
+        employee_id = pemployee_id;
 
-
-
-
-
-
-
-
+EXCEPTION
+    WHEN no_data_found THEN
+        raise_application_error(
+                               -20002,
+                               'Empregado não existe: ' || pemployee_id
+        );
+    WHEN OTHERS THEN
+        raise_application_error(
+                               -20001,
+                               'Erro Oracle: '
+                               || sqlcode
+                               || ' - '
+                               || sqlerrm
+        );
+END;
