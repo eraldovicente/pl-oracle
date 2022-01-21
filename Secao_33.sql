@@ -81,37 +81,57 @@ END;
 -- Consultando o empregado inserido --
 --------------------------------------
 
-SELECT *
-FROM employees
-WHERE first_name = 'David' AND
-      last_name = 'Bowie';
+SELECT
+    *
+FROM
+    employees
+WHERE
+    first_name = 'David'
+    AND last_name = 'Bowie';
 
 --------------------------------------------------------------
 -- Executando a procedure com o comando EXECUTE do SQL*PLUS --
 --------------------------------------------------------------
 
-EXEC prc_inseri_empregado('Greg', 'Lake', 'GLAKE', '999.999.999-99', SYSDATE, 'IT_PROG',1500,NULL,103,60);
+EXEC prc_inseri_empregado('Greg', 'Lake', 'GLAKE', '99.999.9999', SYSDATE, 'IT_PROG',1500,NULL,103,60);
 
 COMMIT;
 
 --------------------------------------
--- Consultando o empregado inserido --
+-- consultando o empregado inserido --
 --------------------------------------
 
-SELECT *
-FROM employees
-WHERE first_name = 'Greg' AND
-      last_name = 'Lake';
+SELECT
+    *
+FROM
+    employees
+WHERE
+    first_name = 'Greg'
+    AND last_name = 'Lake';
+    
+-----------------------------------
+-- Utilizando parâmetros tipo IN --
+-----------------------------------
 
+CREATE OR REPLACE PROCEDURE prc_aumenta_salario_empregado (
+    pemployee_id IN NUMBER,
+    ppercentual  IN NUMBER
+) IS
+ -- Nenhuma variável declarada
+BEGIN
+    UPDATE employees
+    SET
+        salary = salary * ( 1 + ppercentual / 100 )
+    WHERE
+        employee_id = pemployee_id;
 
-
-
-
-
-
-
-
-
-
-
-
+EXCEPTION
+    WHEN OTHERS THEN
+        raise_application_error(
+                               -20001,
+                               'Erro Oracle: '
+                               || sqlcode
+                               || ' - '
+                               || sqlerrm
+        );
+END;
