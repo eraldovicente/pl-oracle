@@ -90,7 +90,7 @@ EXCEPTION
 END;
 
 ----------------------------------------
--- Utilizando funções em comandos SQL --
+-- Utilizando funções em comandos SQL -- Melhor performace é um JOIN
 ----------------------------------------
 
 SELECT
@@ -101,3 +101,14 @@ SELECT
     fnc_consulta_titulo_cargo_empregado(job_id) "JOB TITLE"
 FROM
     employees;
+    
+---------------------------------------------
+-- Executando a função pelo comando SELECT --
+---------------------------------------------
+
+SELECT
+    fnc_consulta_titulo_cargo_empregado(
+        'IT_PROG'
+    )
+FROM
+    dual;
