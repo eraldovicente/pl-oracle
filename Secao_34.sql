@@ -46,10 +46,45 @@ END;
 SET SERVEROUTPUT ON
 SET VERIFY OFF
 ACCEPT pemployee_id PROMPT 'Digite o id do empregado: '
+
 DECLARE
-    vemployee_id employees.employee_id%type := &pemployee_id;
-    vsalary employees.salary%type;
+    vemployee_id employees.employee_id%TYPE := &pemployee_id;
+    vsalary      employees.salary%TYPE;
 BEGIN
-    vsalary := FNC_CONSULTA_SALARIO_EMPREGADO(vemployee_id);
-    DBMS_OUTPUT.PUT_LINE('Salário: ' || vsalary);
+    vsalary := fnc_consulta_salario_empregado(vemployee_id);
+    dbms_output.put_line('Salário: ' || vsalary);
+END;
+
+----------------------------------------
+-- Utilizando funções em comandos SQL --
+----------------------------------------
+
+CREATE OR REPLACE FUNCTION fnc_consulta_titulo_cargo_empregado (
+    pjob_id IN jobs.job_id%TYPE
+) RETURN VARCHAR2 IS
+    vjob_title jobs.job_title%TYPE;
+BEGIN
+    SELECT
+        job_title
+    INTO vjob_title
+    FROM
+        jobs
+    WHERE
+        job_id = pjob_id;
+
+    RETURN ( vjob_title );
+EXCEPTION
+    WHEN no_data_found THEN
+        raise_application_error(
+                               -20001,
+                               'Jobs inexistente'
+        );
+    WHEN OTHERS THEN
+        raise_application_error(
+                               -20002,
+                               'Erro Oracle '
+                               || sqlcode
+                               || ' - '
+                               || sqlerrm
+        );
 END;
