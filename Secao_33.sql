@@ -55,3 +55,24 @@ EXCEPTION
                                || sqlerrm
         );
 END;
+
+----------------------------------------------
+-- Executando a procedure pelo bloco PL/SQL --
+----------------------------------------------
+
+BEGIN
+    prc_inseri_empregado(
+                        'David',
+                        'Bowie',
+                        'DBOWIE',
+                        '999.999.9999',
+                        sysdate,
+                        'IT_PROG',
+                        1500,
+                        NULL,
+                        103,
+                        60
+    );
+
+    COMMIT;
+END;
