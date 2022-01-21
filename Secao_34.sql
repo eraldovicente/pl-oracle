@@ -123,3 +123,9 @@ SELECT
     )
 FROM
     dual;
+    
+--------------------------------------------
+-- Recompilando funções de Banco de dados --
+--------------------------------------------
+
+ALTER FUNCTION fnc_consulta_salario_empregado COMPILE;
