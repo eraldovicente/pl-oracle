@@ -86,6 +86,20 @@ FROM employees
 WHERE first_name = 'David' AND
       last_name = 'Bowie';
 
+--------------------------------------------------------------
+-- Executando a procedure com o comando EXECUTE do SQL*PLUS --
+--------------------------------------------------------------
+
+EXEC prc_inseri_empregado('Greg', 'Lake', 'GLAKE', '999.999.999-99', SYSDATE, 'IT_PROG',1500,NULL,103,60);
+
+COMMIT;
+
+
+
+
+
+
+
 
 
 
