@@ -141,7 +141,7 @@ END;
 -----------------
 
 SET SERVEROUTPUT ON
-ACCEPT pLimite PROMPT "Digite o valor do limite;
+ACCEPT pLimite PROMPT 'Digite o valor do limite'
 DECLARE
     vNumero NUMBER(38) := 1;
     vLimite NUMBER(38) := &pLimite;
