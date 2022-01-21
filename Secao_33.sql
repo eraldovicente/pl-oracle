@@ -440,3 +440,15 @@ END;
 -----------------------------------------------
 
 ALTER PROCEDURE PRC_INSERI_EMPREGADO COMPILE;
+
+-------------------------------------------
+-- Removendo procedure de Banco de dados --
+-------------------------------------------
+
+DROP PROCEDURE PRC_CONSULTA_EMPREGADO;
+
+
+
+
+
+
