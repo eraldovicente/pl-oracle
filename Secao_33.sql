@@ -389,9 +389,48 @@ BEGIN
 
 END;
 
+--------------------
+-- Método nomeado --
+--------------------
 
+SET SERVEROUTPUT ON
+SET VERIFY OFF
 
+DECLARE
+    vemployee_id    NUMBER := 100;
+    vfirst_name     VARCHAR2(200);
+    vlast_name      VARCHAR2(200);
+    vemail          VARCHAR2(200);
+    vphone_number   VARCHAR2(200);
+    vhire_date      DATE;
+    vjob_id         VARCHAR2(200);
+    vsalary         NUMBER;
+    vcommission_pct NUMBER;
+    vmanager_id     NUMBER;
+    vdepartment_id  NUMBER;
+BEGIN
+    prc_consulta_empregado(
+                          pemployee_id    => vemployee_id,
+                          pfirst_name     => vfirst_name,
+                          plast_name      => vlast_name,
+                          pemail          => vemail,
+                          pphone_number   => vphone_number,
+                          phire_date      => vhire_date,
+                          pjob_id         => vjob_id,
+                          psalary         => vsalary,
+                          pcommission_pct => vcommission_pct,
+                          pmanager_id     => vmanager_id,
+                          pdepartment_id  => vdepartment_id
+    );
 
-
-
-
+    dbms_output.put_line('PFIRST_NAME = ' || vfirst_name);
+    dbms_output.put_line('PLAST_NAME = ' || vlast_name);
+    dbms_output.put_line('PEMAIL = ' || vemail);
+    dbms_output.put_line('PPHONE_NUMBER = ' || vphone_number);
+    dbms_output.put_line('PHIRE_DATE = ' || vhire_date);
+    dbms_output.put_line('PJOB_ID = ' || vjob_id);
+    dbms_output.put_line('PSALARY = ' || vsalary);
+    dbms_output.put_line('PCOMMISSION_PCT = ' || vcommission_pct);
+    dbms_output.put_line('PMANAGER_ID = ' || vmanager_id);
+    dbms_output.put_line('PDEPARTMENT_ID = ' || vdepartment_id);
+END;
