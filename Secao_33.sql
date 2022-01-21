@@ -434,3 +434,9 @@ BEGIN
     dbms_output.put_line('PMANAGER_ID = ' || vmanager_id);
     dbms_output.put_line('PDEPARTMENT_ID = ' || vdepartment_id);
 END;
+
+-----------------------------------------------
+-- Recompilando procedures de Bando de dados --
+-----------------------------------------------
+
+ALTER PROCEDURE PRC_INSERI_EMPREGADO COMPILE;
