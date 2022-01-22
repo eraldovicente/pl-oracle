@@ -26,6 +26,29 @@ BEGIN
     COMMIT;
 END;
 
+---------------------------------------------------
+-- Criando uma trigger combinando vários eventos --
+---------------------------------------------------
+
+CREATE OR REPLACE TRIGGER B_IUD_VALIDA_HORARIO_EMPLOYEES_S_TRG
+BEFORE INSERT OR UPDATE OR DELETE
+ON employees
+BEGIN
+  IF  (TO_CHAR(SYSDATE, 'DAY') IN ('SÁBADO', 'DOMINGO') OR
+       TO_NUMBER(TO_CHAR(SYSDATE,'HH24')) NOT BETWEEN 8 AND 18) 
+  THEN
+    CASE
+        WHEN INSERTING
+        THEN
+            RAISE_APPLICATION_ERROR( -20001,'O cadastramento de Empregados só é permitido em dias de semana dentro do horário comercial');
+        WHEN DELETING
+        THEN
+            RAISE_APPLICATION_ERROR( -20002,'O deleção de Empregados só é permitido em dias de semana dentro do horário comercial');
+        ELSE
+            RAISE_APPLICATION_ERROR( -20003,'O atualização de Empregados só é permitido em dias de semana dentro do horário comercial');
+        END CASE;
+  END IF;
+END;
 
 
 
