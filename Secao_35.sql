@@ -49,6 +49,23 @@ WHERE name = 'PRC_CONSULTA_SALARIO_EMPREGADO' AND
       type = 'FUNCTION'
 ORDER BY line;
 
+---------------------------------------------------------------
+-- Consultando a lista de parâmetros de procedures e funções --
+---------------------------------------------------------------
+
+DESC PRC_INSERI_EMPREGADO;
+
+DESC FNC_CONSULTA_SALARIO_EMPREGADO;
+
+
+
+
+
+
+
+
+
+
 
 
 
