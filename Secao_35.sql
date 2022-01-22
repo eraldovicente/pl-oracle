@@ -63,6 +63,25 @@ DESC FNC_CONSULTA_SALARIO_EMPREGADO;
 
 SHOW ERROR PROCEDURE FNC_CONSULTA_SALARIO_EMPREGADO;
 
+---------------------------------------------------------
+-- Consultando erros de compilação - visão USER_ERRORS --
+---------------------------------------------------------
+
+DESC user_errors
+
+COLUMN position FORMAT a4
+COLUMN text FORMAT a60
+SELECT line ||'/'|| position position, text
+FROM user_errors
+WHERE name = 'FNC_CONSULTA_SALARIO_EMPREGADO'
+ORDER BY line;
+
+
+
+
+
+
+
 
 
 
