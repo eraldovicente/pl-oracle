@@ -31,11 +31,23 @@ SELECT object_name, object_type, last_ddl_time, timestamp, status
 FROM user_objects
 WHERE status = 'INVALID';
 
+-----------------------------------------------------------------------
+-- Consultando o código fonte de procedures e funções do seu usuário --
+-----------------------------------------------------------------------
 
+DESC user_source;
 
+SELECT line, text
+FROM user_source
+WHERE name = 'PRC_INSERI_EMPREGADO' AND
+      type = 'PROCEDURE'
+ORDER BY line;
 
-
-
+SELECT line, text
+FROM user_source
+WHERE name = 'PRC_CONSULTA_SALARIO_EMPREGADO' AND
+      type = 'FUNCTION'
+ORDER BY line;
 
 
 
