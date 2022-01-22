@@ -51,6 +51,13 @@ CREATE OR REPLACE PACKAGE BODY pck_empregados IS
         pdepartment_id  IN NUMBER
     ) IS
     BEGIN
+        IF psalary < pck_empregados.gminsalary THEN
+            raise_application_error(
+                                   -20002,
+                                   'Salário não pode ser inferior ao menor salário dos empregados!'
+            );
+        END IF;
+        
         INSERT INTO employees (
             employee_id,
             first_name,
@@ -158,6 +165,26 @@ BEGIN
                                        103,
                                        60
     );
-    
+
     COMMIT;
 END;
+
+---------------------------------------------------------
+-- Recompilado package specification de Banco de dados --
+---------------------------------------------------------
+
+ALTER PACKAGE PCK_EMPREGADOS COMPILE SPECIFICATION;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
