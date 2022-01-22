@@ -57,6 +57,18 @@ DESC PRC_INSERI_EMPREGADO;
 
 DESC FNC_CONSULTA_SALARIO_EMPREGADO;
 
+-----------------------------------------------------------
+-- Consultando erros de compilação - comando SHOW ERRORS --
+-----------------------------------------------------------
+
+SHOW ERROR PROCEDURE FNC_CONSULTA_SALARIO_EMPREGADO;
+
+
+
+
+
+
+
 
 
 
