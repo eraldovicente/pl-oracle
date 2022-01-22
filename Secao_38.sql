@@ -187,16 +187,8 @@ ALTER PACKAGE PCK_EMPREGADOS COMPILE BODY;
 
 DROP PACKAGE BODY PCK_EMPREGADOS;
 
+--------------------------------------------------------------
+-- Removendo package body e specification de Banco de dados --
+--------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
+DROP PACKAGE PCK_EMPREGADOS;
