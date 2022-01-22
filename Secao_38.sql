@@ -6,39 +6,8 @@
 -- Criando o package specification --
 -------------------------------------
 
-CREATE OR REPLACE PACKAGE PCK_EMPREGADOS
-IS
-    gMinSalary employees.salary%type;
-    
-    PROCEDURE PRC_INSERI_EMPREGADO
-    (pfirst_name IN VARCHAR2,
-     plast_name  IN VARCHAR2,
-     pemail      IN VARCHAR2,
-     pphone_number IN VARCHAR2,
-     phire_date IN DATE DEFAULT SYSDATE,
-     pjob_id    IN VARCHAR2,
-     psalary IN NUMBER,
-     pcommission_pct IN NUMBER,
-     pmanager_id IN NUMBER,
-     pdepartment_id IN NUMBER
-     );
-     
-     PROCEDURE PRC_AUMENTA_SALARIO_EMPREGADO
-     (pemployee_id IN NUMBER,
-      ppercentual IN NUMBER);
-      
-     FUNCTION FNC_CONSULTA_SALARIO_EMPREGADO
-     (pemployee_id IN NUMBER)
-     RETURN NUMBER;
-     
-END PCK_EMPREGADOS;
-
-----------------------------
--- Criando o package body --
-----------------------------
-
-create or replace PACKAGE BODY PCK_EMPREGADOS
-IS
+CREATE OR REPLACE PACKAGE pck_empregados IS
+    gminsalary employees.salary%TYPE;
     PROCEDURE prc_inseri_empregado (
         pfirst_name     IN VARCHAR2,
         plast_name      IN VARCHAR2,
@@ -49,7 +18,37 @@ IS
         psalary         IN NUMBER,
         pcommission_pct IN NUMBER,
         pmanager_id     IN NUMBER,
-        pdepartment_id     IN NUMBER
+        pdepartment_id  IN NUMBER
+    );
+
+    PROCEDURE prc_aumenta_salario_empregado (
+        pemployee_id IN NUMBER,
+        ppercentual  IN NUMBER
+    );
+
+    FUNCTION fnc_consulta_salario_empregado (
+        pemployee_id IN NUMBER
+    ) RETURN NUMBER;
+
+END pck_empregados;
+
+----------------------------
+-- Criando o package body --
+----------------------------
+
+CREATE OR REPLACE PACKAGE BODY pck_empregados IS
+
+    PROCEDURE prc_inseri_empregado (
+        pfirst_name     IN VARCHAR2,
+        plast_name      IN VARCHAR2,
+        pemail          IN VARCHAR2,
+        pphone_number   IN VARCHAR2,
+        phire_date      IN DATE DEFAULT sysdate,
+        pjob_id         IN VARCHAR2,
+        psalary         IN NUMBER,
+        pcommission_pct IN NUMBER,
+        pmanager_id     IN NUMBER,
+        pdepartment_id  IN NUMBER
     ) IS
     BEGIN
         INSERT INTO employees (
@@ -87,11 +86,11 @@ IS
                                    || sqlerrm
             );
     END;
-    
-    PROCEDURE PRC_AUMENTA_SALARIO_EMPREGADO
-        (pemployee_id IN NUMBER,
-         ppercentual  IN NUMBER)
-    IS
+
+    PROCEDURE prc_aumenta_salario_empregado (
+        pemployee_id IN NUMBER,
+        ppercentual  IN NUMBER
+    ) IS
             -- Nenhuma variável declarada
     BEGIN
         UPDATE employees
@@ -99,7 +98,7 @@ IS
             salary = salary * ( 1 + ppercentual / 100 )
         WHERE
             employee_id = pemployee_id;
-    
+
     EXCEPTION
         WHEN OTHERS THEN
             raise_application_error(
@@ -138,62 +137,27 @@ IS
                                    || sqlcode
                                    || sqlerrm
             );
-            end;
-    END pck_empregados;
+    END;
 
+END pck_empregados;
 
+----------------------------------------------
+-- Referenciando componentes de uma package --
+----------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+BEGIN
+    pck_empregados.prc_inseri_empregado(
+                                       'Eraldo',
+                                       'Vicente',
+                                       'EVICENTE',
+                                       '999.999.9999',
+                                       sysdate,
+                                       'IT_PROG',
+                                       20000,
+                                       NULL,
+                                       103,
+                                       60
+    );
+    
+    COMMIT;
+END;
