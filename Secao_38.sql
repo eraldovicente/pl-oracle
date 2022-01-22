@@ -175,6 +175,12 @@ END;
 
 ALTER PACKAGE PCK_EMPREGADOS COMPILE SPECIFICATION;
 
+------------------------------------------------
+-- Recompilado package body de Banco de dados --
+------------------------------------------------
+
+ALTER PACKAGE PCK_EMPREGADOS COMPILE BODY;
+
 
 
 
