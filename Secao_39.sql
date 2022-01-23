@@ -127,6 +127,23 @@ BEGIN
          :new.salary);
 END A_IUD_EMPLOYEES_R_TRG;
 
+-----------------------------------
+-- Testando o disparo do trigger --
+-----------------------------------
+
+UPDATE employees
+SET salary = salary * 1.5;
+
+ALTER TRIGGER B_IUD_VALIDA_HORARIO_EMPLOYEES_S_TRG disable;
+
+
+
+
+
+
+
+
+
 
 
 
