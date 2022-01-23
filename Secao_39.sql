@@ -238,7 +238,41 @@ END;
 SET VERIFY OFF
 BEGIN
     PRC_INSERI_EMPREGADO('Eric', 'Clapton', 'ECLAPTON', '99.99.999',SYSDATE, 'IT_PROG',15000, NULL,103,60);
+    COMMIT;
 END;
+
+-------------------------------------------
+-- Violação de regra 2 de mutating table --
+-------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+-- Regra 2 de mutating tables: Não leia informações de tabelas que estejam sendo modificadas --
+-----------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER B_U_VALIDATE_SALARY_EMPLOYEES_R_TRG
+BEFORE UPDATE OF salary
+ON employees
+FOR EACH ROW
+DECLARE
+    vmaxsalary employees.salary%type;
+BEGIN
+    SELECT MAX(salary)
+    INTO vmaxsalary
+    FROM employees;
+    
+    IF :new.salary > vmaxsalary * 1.2
+    THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Salário não pode ser superior ao maior salário + 20%');
+    END IF;
+END;
+
+
+
+
+
+
+
+
 
 
 
