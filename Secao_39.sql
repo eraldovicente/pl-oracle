@@ -222,7 +222,23 @@ BEGIN
     PRC_INSERI_EMPREGADO('Eric', 'Clapton', 'ECLAPTON', '99.99.999',SYSDATE, 'IT_PROG',15000, NULL,103,60);
 END;
 
+-------------------------------------------------------
+-- Corrigindo a trigger para que não viole a regra 1 --
+-------------------------------------------------------
 
+CREATE OR REPLACE TRIGGER A_I_EMPLOYEES_R_TRG
+BEFORE INSERT
+ON employees
+FOR EACH ROW
+BEGIN
+    :new.email := UPPER(SUBSTR(:new.first_name,1,1) || (:new.last_name));
+END;
+
+
+SET VERIFY OFF
+BEGIN
+    PRC_INSERI_EMPREGADO('Eric', 'Clapton', 'ECLAPTON', '99.99.999',SYSDATE, 'IT_PROG',15000, NULL,103,60);
+END;
 
 
 
