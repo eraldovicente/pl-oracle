@@ -136,8 +136,14 @@ SET salary = salary * 1.5;
 
 ALTER TRIGGER B_IUD_VALIDA_HORARIO_EMPLOYEES_S_TRG disable;
 
+----------------------------------------
+-- Consultando a tabela employees_log --
+----------------------------------------
 
+SELECT *
+FROM employees_log;
 
+COMMIT;
 
 
 
