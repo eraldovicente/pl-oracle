@@ -189,10 +189,38 @@ BEGIN
          :new.salary);
 END A_IUD_EMPLOYEES_R_TRG;
 
+-------------------------------
+-- Regras de mutating tables --
+-------------------------------
 
+---------------------------------------------------
+-- Violação da primeira regra de mutating tables --
+---------------------------------------------------
 
+/*
+Regra 1º de mutating tables não altere dados de colunas de chaves primarias,
+chaves estrangeiras e chaves únicas de tabelas relacionadas aquela na qual 
+a trigger dispareda está associada.
+*/
 
+CREATE OR REPLACE TRIGGER A_I_EMPLOYEES_R_TRG
+AFTER INSERT
+ON employees
+FOR EACH ROW
+BEGIN
+    UPDATE employees
+    SET email = upper(substr(:new.first_name,1,1) || :new.last_name)
+    WHERE employee_id = :new.employee_id;
+END;
 
+--------------------------------
+-- Testando violação da regra --
+--------------------------------
+
+SET VERIFY OFF
+BEGIN
+    PRC_INSERI_EMPREGADO('Eric', 'Clapton', 'ECLAPTON', '99.99.999',SYSDATE, 'IT_PROG',15000, NULL,103,60);
+END;
 
 
 
