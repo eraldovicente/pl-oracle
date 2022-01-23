@@ -266,6 +266,14 @@ BEGIN
     END IF;
 END;
 
+----------------------------------
+-- Testando violação da regra 2 --
+----------------------------------
+
+SET VERIFY OFF
+UPDATE employees
+SET salary = 70000
+WHERE employee_id = 100;
 
 
 
